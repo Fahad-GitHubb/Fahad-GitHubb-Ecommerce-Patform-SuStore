@@ -1,0 +1,254 @@
+*{
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+  text-decoration: none;
+}
+
+html,body {
+  margin: 0;
+  width:100%;
+  height:100vh;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.App{
+  display: flex;
+  flex-direction: column;
+  width:100%;
+  min-height:100vh;
+}
+
+.content {
+  flex: 1;
+  padding: 1rem; /* Optional: spacing for your content */
+}
+
+.navbar{
+  width:100%;
+  display:flex;
+  flex-direction: column;
+}
+
+.navbar-upper{
+  padding-left: 10%;
+  padding-right: 10%;
+  height:44px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #7E33E0;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 16px;
+  color: #F1F1F1;
+}
+
+.navbar-upper-login{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  gap: 5px;
+  width: 50%;
+}
+
+.navbar-upper-options{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+  gap: 5%;
+  width: 50%;
+  /* min-width: 240px; */
+  flex-wrap:nowrap;
+}
+
+.navbar-upper-options-wishlist, .navbar-upper-options-cart, .navbar-upper-options-curr, .navbar-upper-options-darkmode{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navbar-upper-options-wishlist > svg{
+  padding-bottom: 4px;
+}
+.navbar-upper-options-cart > svg{
+  padding-bottom: 2px;
+}
+.navbar-upper-options-curr > svg{
+  padding-bottom: 2px;
+}
+
+.navbar-lower{
+  margin-top:15px;
+  margin-bottom:5px;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.navbar-lower-left{
+  width:75%;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
+
+.navbar-lower-right{
+  width: 25%;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+}
+
+.navbar-lower-left-logo{
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.navbar-lower-left-options{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  gap: 7.5% ;
+  margin-left: 10%;
+}
+
+/* Small devices */ 
+@media (min-width: 10px) {
+    .navbar-upper {
+        font-size: 12px; /* Font size for tablets */
+    }
+}
+/* Medium devices (tablets, 768px and up) */ 
+@media (min-width: 450px) {
+    .navbar-upper {
+        font-size: 14px; /* Font size for tablets */
+    }
+}
+
+/* Large devices (desktops, 1024px and up) */
+@media (min-width: 1024px) {
+    .navbar-upper {
+        font-size: 16px; /* Font size for desktops */
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .navbar-upper{
+        font-size: 18px; /* Font size for large desktops */
+    }
+}
+
+
+/* for searchBar and searchButton */
+
+.navbar-lower-right{
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  gap: 5px;
+}
+
+.navbar-lower-right-searchbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+}
+
+#searchBar{
+  width: 100%;
+  height: 25px;
+  border: 3px solid #E7E6EF;
+  padding-left: 5px;
+  font-size: 12px;
+}
+
+
+#searchButton{
+  width: 40px;
+  height: 25px;
+  border: none;
+  background-color: #FB2E86;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-lower-left-options-next{
+  display: none;
+}
+@media screen and (max-width: 928px) {
+  .navbar-lower-left-options{
+    font-size: 12px;
+    margin-left: 5%;
+  }
+}
+
+/* .navbar-lower-left-dropdown{
+  display: none;
+} */
+
+@media screen and (max-width:728px){
+  .navbar-lower-left-options-blog, .navbar-lower-left-options-order, .navbar-lower-left-options-about{
+    display: none;
+  }
+
+  .navbar-lower-left-options{
+    gap: 11.5%;
+  }
+  
+  .navbar-lower-left-options-next{
+    display: block;
+  }
+
+}
+
+.navbar-lower-right-hamburgerMenue{
+  display: none;
+}
+
+@media screen and (max-width:545px){
+  .navbar-lower-right-hamburgerMenue{
+    display: block;
+    padding-right:20px;
+  }
+
+  .navbar-lower-right-searchbar, .navbar-lower-left-options{
+    display:none;
+  }
+}
+
+/* Footer */
+.footer{
+  width:100%;
+}
+.footer-upper{
+  width: 100%;
+  background-color: #EEEFFB;
+  height: 100px;
+}
+.footer-lower{
+  background-color: #E7E4F8;
+  color: #9DA0AE;
+  height: 40px;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 16px;
+}
