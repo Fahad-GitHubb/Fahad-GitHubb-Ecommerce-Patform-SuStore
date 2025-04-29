@@ -4,7 +4,41 @@ const Footer = () => {
 
   return (
     <div className='footer'>
-      <div className="footer-upper">footer Upper</div>
+      <div className="footer-upper">
+        <div className="footer-upper-heckto">
+          <div className="footer-upper-heckto-title">SuStore</div>
+          <div className="footer-upper-heckto-signup">Sign up</div>
+          <div className="footer-upper-heckto-address">
+            Contact Information: <br />
+            Address <br />
+            Phone Number <br />
+          </div>
+        </div>
+        <div className="footer-upper-categories">
+          Categories <br />
+          Laptops & Computers <br />
+          Cameras & Photography <br />
+          Smart Phones & Tablets <br />
+          Video Games & Consoles<br />
+          Waterproof Headphones <br />
+        </div>
+        <div className="footer-upper-pages">
+          Pages <br />
+          Blog <br />
+          Shop <br />
+          Users <br />
+          Sellers <br />
+          Stores <br />
+        </div>
+        <div className="footer-upper-user">
+          Customer Care <br />
+          My Account <br />
+          Orders <br />
+          Transaction <br />
+          Cart <br />
+          Wishlist <br />
+        </div>
+      </div>
       <div className="footer-lower">
         <div className="footer-lower-left">
             ©SuStore - All Rights Reserved
