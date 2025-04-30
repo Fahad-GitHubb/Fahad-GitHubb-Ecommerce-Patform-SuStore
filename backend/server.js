@@ -1,12 +1,56 @@
 import express from 'express';
+import cors from 'cors';
 import dotenv from 'dotenv';
 import {connectDB} from './config/db.js';
 import Product from './models/products.model.js';
+import Users from './models/users.models.js';
 
 dotenv.config();
 
+
 const app = express();
+app.use(cors());
 app.use(express.json()) // Middleware to parse JSON data from incoming requests (req.body)
+
+
+// creating a new user
+app.post('/api/user', async (req, res)=>{
+    const user = req.body;
+
+    if(!user.name || !user.email || !user.password){
+        return res.status(400).json({message: "Please fill all the fields of user"})
+    }
+
+    const newUser = new Users(user)
+
+    try{
+        await newUser.save()
+        res.status(200).json({message: "User has been created successfully"})
+    } catch (error){
+        res.status(500).json({message: error.message})
+    }
+})
+
+// validate a user
+app.post('/api/user/validate', async (req, res)=>{
+    const {email, password} = req.body
+
+    if(!email || !password){
+        return res.status(400).json({message: "Please fill all the fields of user"})
+    }
+
+    try{
+        const user = await Users.findOne({email, password})
+        if(user){
+            res.status(200).json({message: "User has been validated successfully", data: user})
+        } else {
+            res.status(400).json({message: "Invalid email or password"})
+        }
+    } catch (error){
+        res.status(500).json({message: error.message})
+    }
+})
+
 
 // creating new prodcut 
 app.post('/api/product', async (req, res)=>{
