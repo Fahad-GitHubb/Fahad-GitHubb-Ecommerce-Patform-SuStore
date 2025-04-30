@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import {connectDB} from './config/db.js';
 import Product from './models/products.model.js';
 import Users from './models/users.models.js';
+import Stores from './models/stores.model.js';
 
 dotenv.config();
 
@@ -46,6 +47,16 @@ app.post('/api/user/validate', async (req, res)=>{
         } else {
             res.status(400).json({message: "Invalid email or password"})
         }
+    } catch (error){
+        res.status(500).json({message: error.message})
+    }
+})
+
+// get store details
+app.get('/api/store', async (req, res)=>{
+    try{
+        const store = await Stores.findOne({role: "store"})
+        res.status(200).json({seccess: true, data: store})
     } catch (error){
         res.status(500).json({message: error.message})
     }
