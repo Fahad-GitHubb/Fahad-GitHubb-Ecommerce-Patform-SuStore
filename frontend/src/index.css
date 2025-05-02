@@ -534,3 +534,147 @@ html,body {
 .signup-container-password{
   margin-bottom: 19px;
 }
+
+
+/* SHOP */
+
+.Shop{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.shop{
+  display: flex;
+  flex-direction: column;
+}
+
+.shop-intro{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  margin-top:50px;
+}
+
+.shop-intro-buttons{
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+}
+
+.shop-intro-title{
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.shop-intro-tagline{
+  color: rgb(147 51 234);
+  margin-top: 15px;
+  font-size: 1.1rem;
+}
+
+.shop-intro-description{
+  color: rgb(75 85 99);
+  font-size: 1.1rem;
+  margin-top: 20px;
+}
+
+.shop-intro-buttons{
+  display: flex;
+  margin-top: 20px;
+  height: 40px;
+}
+
+.shop-intro-buttons-btn1, .shop-intro-buttons-btn2{
+  width: 120px;
+  font-size: 12px;
+  border: none;
+  border-radius: 8px;  
+  cursor: pointer;
+}
+
+
+
+.shop-intro-buttons-btn1{
+  background-color: rgb(147 51 234);
+  color: white;
+  font-weight: bold; 
+}
+
+
+.shop-intro-buttons-btn2{
+  border: 1px solid rgb(147 51 234);
+  color: rgb(147 51 234);
+  background-color: white;
+  font-weight: bold; 
+}
+
+
+.shop-category{
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+
+.shop-category-head{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  
+  margin-bottom: 35px;
+}
+
+.shop-category-head-left{
+  display: flex;
+  flex-direction: column;
+}
+
+.shop-category-head-left-title{
+  font-size: 1.7rem;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+
+.shop-category-head-left-desc{
+  color: rgb(75 85 99);
+  font-size: 1.1rem;
+}
+
+.shop-category-head-right{
+  color: rgb(147 51 234);
+  font-size: 1.1rem;
+}
+
+.shop-category-categories-card-image > img{
+  height: 60%;
+}
+
+.shop-category-categories-card{
+  width: 20%;
+}
+
+.shop-category-categories{
+  display: grid;
+  /* grid-template-columns: auto auto auto auto auto; */
+  grid-template-columns: 1fr 1fr 1fr ;
+  
+}
+
+/* .shop-category-categories-card{
+  width: 20%;
+}
+
+.shop-category-categories-card-desc{
+  display: flex;
+  flex-direction: column;
+
+} */
