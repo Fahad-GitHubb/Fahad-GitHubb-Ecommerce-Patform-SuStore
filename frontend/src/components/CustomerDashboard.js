@@ -1,10 +1,11 @@
 import React from 'react'
 import Advertisment1 from './advertisments/Advertisment1'
+import Advertisment2 from './advertisments/Advertisment2'
 
 const CustomerDashboard = () => {
   return (
     <div className='customerDashboard'>
-        <Advertisment1
+        <Advertisment1 
             adImage = "@/frontend/assets/asImages/chair1.png"
             adTitle1 = "New Furniture Collection."
             adTitle2 = "Trends in 2025"

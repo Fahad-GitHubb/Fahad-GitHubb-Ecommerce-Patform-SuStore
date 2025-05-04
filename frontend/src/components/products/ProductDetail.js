@@ -1,0 +1,124 @@
+import React from 'react'
+import HeaderBar from '../HeaderBar'
+
+
+const ProductDetail = () => {
+    const numStars = 5;
+    const numDetais = 4;
+  return (
+    <div className='product-detail'>
+        <HeaderBar
+            pageName={"Product Details"}
+            pagePath={["Home", "Products", "Product Details"]}
+        />
+        <div className="project-detail-section">
+            <div className="product-detail-1">
+                <div className="product-detail-1-left">
+                    <div className="product-detail-1-left-col1">
+                        <img src="/images/produt1.jpeg" alt="" className="product-detail-1-left-col1-img1" />
+                        <img src="/images/produt1.jpeg" alt="" className="product-detail-1-left-col1-img2" />
+                        <img src="/images/produt1.jpeg" alt="" className="product-detail-1-left-col1-img3" />
+                    </div>
+                    <div className="product-detail-1-left-col2">
+                        <img src="/images/produt1.jpeg" alt="" className="product-detail-1-left-col2-img1" />
+                    </div>
+                </div>
+                <div className="product-detail-1-right">
+                    <div className="name">Playwood arm chair</div>
+                    <div className="rating">
+                        {Array.from({ length: numStars }, (_, index) => (
+                        <div key={index}>
+                          {<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" className='star'>
+                            <path d="M10.6415 4.13792L7.66615 3.7055L6.33608 1.00901C6.29975 0.935185 6.23998 0.875419 6.16615 0.839091C5.981 0.747685 5.756 0.823857 5.66342 1.00901L4.33334 3.7055L1.35795 4.13792C1.27592 4.14964 1.20092 4.18831 1.1435 4.2469C1.07408 4.31826 1.03582 4.41425 1.03714 4.51379C1.03846 4.61333 1.07924 4.70828 1.15053 4.77776L3.30326 6.87659L2.79467 9.84026C2.78274 9.9092 2.79037 9.98011 2.81669 10.0449C2.84301 10.1098 2.88697 10.1659 2.94358 10.207C3.00019 10.2481 3.06719 10.2726 3.13697 10.2776C3.20676 10.2825 3.27655 10.2679 3.33842 10.2352L5.99975 8.83597L8.66108 10.2352C8.73373 10.2739 8.81811 10.2867 8.89897 10.2727C9.10287 10.2375 9.23998 10.0442 9.20483 9.84026L8.69623 6.87659L10.849 4.77776C10.9076 4.72034 10.9462 4.64534 10.958 4.56331C10.9896 4.35823 10.8466 4.16839 10.6415 4.13792Z" fill="#FFC416"/>
+
+                           </svg>}
+                        </div>
+                        ))}
+                        {Array.from({ length: (5 - numStars) }, (_, index) => (
+                        <div key={index}>
+                          {<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.64154 4.13792L6.66615 3.7055L5.33608 1.00901C5.29975 0.935185 5.23998 0.875419 5.16615 0.839091C4.981 0.747685 4.756 0.823857 4.66342 1.00901L3.33334 3.7055L0.35795 4.13792C0.275919 4.14964 0.200919 4.18831 0.143497 4.2469C0.0740774 4.31826 0.0358239 4.41425 0.0371424 4.51379C0.0384608 4.61333 0.0792433 4.70828 0.150529 4.77776L2.30326 6.87659L1.79467 9.84026C1.78274 9.9092 1.79037 9.98011 1.81669 10.0449C1.84301 10.1098 1.88697 10.1659 1.94358 10.207C2.00019 10.2481 2.06719 10.2726 2.13697 10.2776C2.20676 10.2825 2.27655 10.2679 2.33842 10.2352L4.99975 8.83597L7.66108 10.2352C7.73373 10.2739 7.81811 10.2867 7.89897 10.2727C8.10287 10.2375 8.23998 10.0442 8.20483 9.84026L7.69623 6.87659L9.84897 4.77776C9.90756 4.72034 9.94623 4.64534 9.95795 4.56331C9.98959 4.35823 9.84662 4.16839 9.64154 4.13792V4.13792Z" fill="#B2B2B2"/>
+                          </svg>}
+                        </div>
+                        ))}
+                    </div>    
+                    <div className="prices">
+                        <div className="now">$32.00</div>
+                        <div className="old">$52.00</div>
+                    </div>    
+                    <div className="colors" style={{'color': "#0D134E", 'fontSize':"0.9rem"}}>
+                        Color
+                    </div>
+                    <div className="brief-desc">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tellus porttitor purus, et volutpat sit.
+                    </div>
+                    <div className="buttons">
+                        <button className='addToCart'>Add to Cart</button>
+                        <button className='addToWishlist'>
+                            <svg width="14" height="14" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15.1202 3.45748C14.3239 2.66099 13.2682 2.17673 12.1451 2.09277C11.022 2.00881 9.90605 2.33073 9.00021 2.99998C8.04595 2.29021 6.8582 1.96837 5.67615 2.09926C4.49409 2.23016 3.40554 2.80407 2.62969 3.70542C1.85384 4.60678 1.44832 5.76862 1.49481 6.95699C1.54129 8.14536 2.03632 9.27198 2.88021 10.11L8.46771 15.6975C8.53743 15.7678 8.62038 15.8236 8.71177 15.8617C8.80317 15.8997 8.9012 15.9193 9.00021 15.9193C9.09922 15.9193 9.19725 15.8997 9.28864 15.8617C9.38003 15.8236 9.46299 15.7678 9.53271 15.6975L15.1202 10.11C15.5572 9.67327 15.9039 9.15474 16.1404 8.58401C16.3769 8.01327 16.4986 7.40153 16.4986 6.78373C16.4986 6.16593 16.3769 5.55419 16.1404 4.98346C15.9039 4.41272 15.5572 3.89419 15.1202 3.45748ZM14.0627 9.05248L9.00021 14.1075L3.93771 9.05248C3.49159 8.60451 3.18769 8.03477 3.06413 7.41474C2.94057 6.79471 3.00285 6.152 3.24317 5.56723C3.48349 4.98246 3.89113 4.48168 4.41497 4.1277C4.9388 3.77372 5.5555 3.58231 6.18771 3.57748C7.03229 3.57955 7.84153 3.91673 8.43771 4.51498C8.50743 4.58528 8.59038 4.64107 8.68177 4.67915C8.77317 4.71723 8.8712 4.73683 8.97021 4.73683C9.06922 4.73683 9.16725 4.71723 9.25864 4.67915C9.35003 4.64107 9.43299 4.58528 9.50271 4.51498C10.1165 3.98314 10.9093 3.70434 11.7209 3.735C12.5324 3.76566 13.302 4.10349 13.8738 4.68012C14.4457 5.25675 14.7771 6.02911 14.8011 6.84087C14.825 7.65264 14.5396 8.44317 14.0027 9.05248H14.0627Z" fill="#FB2E86"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div className="category">Category</div>
+                    <div className="share">
+                        <svg width="56" height="12" viewBox="0 0 56 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="6" cy="6" r="6" fill="#151875"/>
+                        <path d="M6.68689 8.6391V6.01638H7.57169L7.70321 4.9895H6.68689V4.33542C6.68689 4.0391 6.76945 3.83622 7.19473 3.83622H7.73361V2.9207C7.47142 2.8926 7.20787 2.87903 6.94417 2.88006C6.16209 2.88006 5.62513 3.3575 5.62513 4.23398V4.98758H4.74609V6.01446H5.62705V8.6391H6.68689Z" fill="white"/>
+                        <circle cx="50" cy="6" r="6" fill="#151875"/>
+                        <g clip-path="url(#clip0_108_8629)">
+                        <path d="M53.4856 3.49972C53.2184 3.61812 52.9314 3.69812 52.6296 3.73428C52.941 3.54797 53.1739 3.25475 53.285 2.90932C52.9925 3.08307 52.6723 3.20538 52.3384 3.27092C52.1139 3.03119 51.8165 2.8723 51.4925 2.81891C51.1684 2.76552 50.8358 2.82061 50.5462 2.97564C50.2566 3.13067 50.0264 3.37695 49.8911 3.67626C49.7559 3.97557 49.7233 4.31116 49.7983 4.63092C49.2055 4.60116 48.6257 4.44709 48.0963 4.17873C47.567 3.91036 47.1 3.53369 46.7256 3.07316C46.5976 3.29396 46.524 3.54996 46.524 3.8226C46.5239 4.06804 46.5843 4.30972 46.7 4.52619C46.8157 4.74267 46.983 4.92725 47.1871 5.06356C46.9504 5.05603 46.7189 4.99206 46.5119 4.877V4.8962C46.5119 5.24043 46.6309 5.57408 46.8489 5.84052C47.0669 6.10695 47.3703 6.28977 47.7077 6.35796C47.4881 6.41739 47.2579 6.42614 47.0344 6.38356C47.1296 6.67975 47.3151 6.93877 47.5648 7.12433C47.8145 7.3099 48.116 7.41273 48.4271 7.41844C47.899 7.83297 47.2469 8.05783 46.5756 8.05684C46.4566 8.05687 46.3378 8.04992 46.2197 8.03604C46.9012 8.47417 47.6944 8.7067 48.5045 8.7058C51.2469 8.7058 52.7461 6.43444 52.7461 4.46452C52.7461 4.40052 52.7445 4.33588 52.7416 4.27188C53.0333 4.06099 53.285 3.79984 53.485 3.50068L53.4856 3.49972Z" fill="white"/>
+                        </g>
+                        <circle cx="28" cy="6" r="6" fill="#FB2E86"/>
+                        <path d="M30.6229 4.57764C30.6197 4.33528 30.5743 4.09533 30.4888 3.86852C30.4147 3.67721 30.3015 3.50347 30.1564 3.35839C30.0113 3.21331 29.8376 3.10009 29.6463 3.02596C29.4224 2.94192 29.1858 2.89647 28.9467 2.89156C28.6389 2.8778 28.5413 2.87396 27.7599 2.87396C26.9784 2.87396 26.8783 2.87396 26.5727 2.89156C26.3337 2.89651 26.0973 2.94195 25.8735 3.02596C25.6821 3.10004 25.5084 3.21324 25.3633 3.35832C25.2182 3.50341 25.105 3.67718 25.0309 3.86852C24.9467 4.09224 24.9013 4.32872 24.8968 4.56772C24.8831 4.87588 24.8789 4.97348 24.8789 5.75492C24.8789 6.53636 24.8789 6.6362 24.8968 6.94212C24.9016 7.18148 24.9467 7.41764 25.0309 7.64196C25.1051 7.83325 25.2184 8.00695 25.3635 8.15197C25.5087 8.29699 25.6824 8.41015 25.8738 8.4842C26.097 8.57163 26.3334 8.62032 26.573 8.6282C26.8811 8.64196 26.9787 8.64612 27.7602 8.64612C28.5416 8.64612 28.6418 8.64612 28.9474 8.6282C29.1865 8.62349 29.423 8.57815 29.6469 8.49412C29.8382 8.41991 30.0119 8.30666 30.1569 8.16159C30.302 8.01652 30.4153 7.84282 30.4895 7.65156C30.5736 7.42756 30.6187 7.1914 30.6235 6.95172C30.6373 6.64388 30.6415 6.54628 30.6415 5.76452C30.6408 4.98308 30.6408 4.88388 30.6229 4.57764ZM27.7579 7.23268C26.9407 7.23268 26.2786 6.5706 26.2786 5.75332C26.2786 4.93604 26.9407 4.27396 27.7579 4.27396C28.1503 4.27396 28.5266 4.42982 28.804 4.70726C29.0814 4.98469 29.2373 5.36097 29.2373 5.75332C29.2373 6.14567 29.0814 6.52195 28.804 6.79939C28.5266 7.07682 28.1503 7.23268 27.7579 7.23268ZM29.2962 4.5642C29.1051 4.5642 28.9512 4.40996 28.9512 4.21924C28.9512 4.17396 28.9601 4.12913 28.9775 4.08729C28.9948 4.04546 29.0202 4.00745 29.0522 3.97543C29.0842 3.94341 29.1222 3.91802 29.1641 3.90069C29.2059 3.88336 29.2507 3.87444 29.296 3.87444C29.3413 3.87444 29.3861 3.88336 29.428 3.90069C29.4698 3.91802 29.5078 3.94341 29.5398 3.97543C29.5719 4.00745 29.5973 4.04546 29.6146 4.08729C29.6319 4.12913 29.6408 4.17396 29.6408 4.21924C29.6408 4.40996 29.4866 4.5642 29.2962 4.5642Z" fill="white"/>
+                        <path d="M27.7578 6.71416C28.2886 6.71416 28.7188 6.28392 28.7188 5.7532C28.7188 5.22247 28.2886 4.79224 27.7578 4.79224C27.2271 4.79224 26.7969 5.22247 26.7969 5.7532C26.7969 6.28392 27.2271 6.71416 27.7578 6.71416Z" fill="white"/>
+                        <defs>
+                        <clipPath id="clip0_108_8629">
+                        <rect width="7.68" height="7.68" fill="white" transform="translate(45.9199 1.91998)"/>
+                        </clipPath>
+                        </defs>
+                        </svg>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div className="product-detail-2">
+            <div className="product-detail-2-top">
+                <button className="desc-btn">Description</button>
+                <button className="review-btn">Reviews</button>
+            </div>
+            <div className="product-detail-2-bottom">
+                <div className="desc">
+                    <div className="desc-head">
+                        <div className="desc-head-title">Varius tempor.</div>
+                        <div className="desc-head-desc">Aliquam dis vulputate vulputate integer sagittis. Faucibus dolor ornare faucibus vel sed et eleifend habitasse amet. Montes, mauris varius ac est bibendum. Scelerisque a, risus ac ante. Velit consectetur neque, elit, aliquet. Non varius proin sed urna, egestas consequat laoreet diam tincidunt. Magna eget faucibus cras justo, tortor sed donec tempus. Imperdiet consequat, quis diam arcu, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr .</div>
+                    </div>
+                    <div className="desc-details">
+                        <div className="desc-details-title">More details</div>
+                        <ul className='desc-details-ul'>
+                            {Array.from({ length: numDetais }, (_, index) => (
+                            <li key={index} className='desc-details-ul-li'>
+                                <svg className='desc-details-ul-li-svg' width="13" height="13" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 8L17 8" stroke="#151875" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10 1L17 8L10 15" stroke="#151875" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <div className="desc-details-ul-li-content">Aliquam dis vulputate vulputate integer sagittis. Faucibus ds diam arcu, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr .</div>
+                            </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+                <div className="reviews"></div>
+            </div>
+        </div>
+        <div className="product-detail-3"></div>
+
+
+      
+    </div>
+  )
+}
+
+export default ProductDetail
