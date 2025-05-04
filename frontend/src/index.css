@@ -1536,3 +1536,20 @@ html,body {
 .product-detail-2-bottom > .desc{
   margin-bottom: 30px;
 }
+
+
+
+.remove-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(255,255,255,0.8);
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+}
