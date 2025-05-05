@@ -13,6 +13,8 @@ import Shops from './components/shops/Shops';
 import ProductListing from './components/products/ProductListing';
 import ProductDetail from './components/products/ProductDetail';
 import Cart from './components/Cart';
+import Wishlist from './components/WishList';
+import OrderCompletion from './components/OrderCompletion';
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
               <Route path='/products' element={<ProductListing />} />
               <Route path='/product/:id' element={<ProductDetail />} />
               <Route path='/cart' element={<Cart />} />
+              <Route path='/wishlist' element={<Wishlist />} />
+              <Route path='/order-completion' element={<OrderCompletion />} />
           </Routes>
       </div>
       <Footer />

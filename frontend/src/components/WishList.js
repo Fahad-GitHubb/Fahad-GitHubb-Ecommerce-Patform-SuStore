@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import HeaderBar from '../HeaderBar';
+import HeaderBar from './HeaderBar';
 
 const Wishlist = () => {
   // Example wishlist items; in a real app you'd pull these from context or API
