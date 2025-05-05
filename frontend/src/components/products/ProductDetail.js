@@ -1,10 +1,51 @@
 import React from 'react'
 import HeaderBar from '../HeaderBar'
-
+import { useState } from 'react';
 
 const ProductDetail = () => {
+    const [showReviews, setShowReviews] = useState(false)
     const numStars = 5;
     const numDetais = 4;
+    const totalReviews = 29;
+    const reviews = [
+    {
+        stars: 5,
+        owner: "Alice Johnson",
+        review: "Absolutely fantastic service!",
+        date: "2023-05-01"
+    },
+    {
+        stars: 4,
+        owner: "Bob Smith",
+        review: "Very good, but room for improvement.",
+        date: "2023-04-15"
+    },
+    {
+        stars: 3,
+        owner: "Charlie Brown",
+        review: "It was okay, nothing special.",
+        date: "2023-03-20"
+    },
+    {
+        stars: 2,
+        owner: "Diana Prince",
+        review: "Not what I expected.",
+        date: "2023-02-10"
+    },
+    {
+        stars: 1,
+        owner: "Ethan Hunt",
+        review: "Very disappointing experience.",
+        date: "2023-01-05"
+    }
+    ];
+
+   const handleDec = () => {
+    setShowReviews(false)
+   }
+   const handleRev = () => {
+    setShowReviews(true)
+   }
   return (
     <div className='product-detail'>
         <HeaderBar
@@ -86,31 +127,69 @@ const ProductDetail = () => {
 
         <div className="product-detail-2">
             <div className="product-detail-2-top">
-                <button className="desc-btn">Description</button>
-                <button className="review-btn">Reviews</button>
+                <button className="desc-btn" onClick={handleDec}>Description</button>
+                <button className="review-btn" onClick={handleRev}>Reviews</button>
             </div>
             <div className="product-detail-2-bottom">
-                <div className="desc">
-                    <div className="desc-head">
-                        <div className="desc-head-title">Varius tempor.</div>
-                        <div className="desc-head-desc">Aliquam dis vulputate vulputate integer sagittis. Faucibus dolor ornare faucibus vel sed et eleifend habitasse amet. Montes, mauris varius ac est bibendum. Scelerisque a, risus ac ante. Velit consectetur neque, elit, aliquet. Non varius proin sed urna, egestas consequat laoreet diam tincidunt. Magna eget faucibus cras justo, tortor sed donec tempus. Imperdiet consequat, quis diam arcu, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr .</div>
+                {!showReviews && (
+                    <div className="desc">
+                        <div className="desc-head">
+                            <div className="desc-head-title">Varius tempor.</div>
+                            <div className="desc-head-desc">Aliquam dis vulputate vulputate integer sagittis. Faucibus dolor ornare faucibus vel sed et eleifend habitasse amet. Montes, mauris varius ac est bibendum. Scelerisque a, risus ac ante. Velit consectetur neque, elit, aliquet. Non varius proin sed urna, egestas consequat laoreet diam tincidunt. Magna eget faucibus cras justo, tortor sed donec tempus. Imperdiet consequat, quis diam arcu, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr .</div>
+                        </div>
+                        <div className="desc-details">
+                            <div className="desc-details-title">More details</div>
+                            <ul className='desc-details-ul'>
+                                {Array.from({ length: numDetais }, (_, index) => (
+                                <li key={index} className='desc-details-ul-li'>
+                                    <svg className='desc-details-ul-li-svg' width="13" height="13" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 8L17 8" stroke="#151875" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M10 1L17 8L10 15" stroke="#151875" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <div className="desc-details-ul-li-content">Aliquam dis vulputate vulputate integer sagittis. Faucibus ds diam arcu, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr .</div>
+                                </li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
-                    <div className="desc-details">
-                        <div className="desc-details-title">More details</div>
-                        <ul className='desc-details-ul'>
-                            {Array.from({ length: numDetais }, (_, index) => (
-                            <li key={index} className='desc-details-ul-li'>
-                                <svg className='desc-details-ul-li-svg' width="13" height="13" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1 8L17 8" stroke="#151875" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M10 1L17 8L10 15" stroke="#151875" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                                <div className="desc-details-ul-li-content">Aliquam dis vulputate vulputate integer sagittis. Faucibus ds diam arcu, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr .</div>
-                            </li>
-                            ))}
-                        </ul>
+                )}
+                {showReviews && (
+                    <div className="reviews">
+                        <div className="reviews-head">
+                            <div className="reviews-title">All Reviews {'('+ totalReviews + ')'}</div>
+                            <button className="reviews-addReview">
+                                Write a Review
+                            </button>
+                        </div>
+                        <div className="reviews-listing">
+                            {reviews.map((review, index) =>{
+                                return(
+                                    <div key={index} className="reviews-listing-review">
+                                        <div className="rating">
+                                            {Array.from({ length: review.stars }, (_, index) => (
+                                            <svg width="14" height="14" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M9.64154 4.13792L6.66615 3.7055L5.33608 1.00901C5.29975 0.935185 5.23998 0.875419 5.16615 0.839091C4.981 0.747685 4.756 0.823857 4.66342 1.00901L3.33334 3.7055L0.35795 4.13792C0.275919 4.14964 0.200919 4.18831 0.143497 4.2469C0.0740774 4.31826 0.0358239 4.41425 0.0371424 4.51379C0.0384608 4.61333 0.0792433 4.70828 0.150529 4.77776L2.30326 6.87659L1.79467 9.84026C1.78274 9.9092 1.79037 9.98011 1.81669 10.0449C1.84301 10.1098 1.88697 10.1659 1.94358 10.207C2.00019 10.2481 2.06719 10.2726 2.13697 10.2776C2.20676 10.2825 2.27655 10.2679 2.33842 10.2352L4.99975 8.83597L7.66108 10.2352C7.73373 10.2739 7.81811 10.2867 7.89897 10.2727C8.10287 10.2375 8.23998 10.0442 8.20483 9.84026L7.69623 6.87659L9.84897 4.77776C9.90756 4.72034 9.94623 4.64534 9.95795 4.56331C9.98959 4.35823 9.84662 4.16839 9.64154 4.13792V4.13792Z" fill="#FFD701"/>
+                                            </svg>
+                                            ))}
+                                            {Array.from({ length: 5-review.stars }, (_, index) => (
+                                            <svg width="14" height="14" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M9.64154 4.13792L6.66615 3.7055L5.33608 1.00901C5.29975 0.935185 5.23998 0.875419 5.16615 0.839091C4.981 0.747685 4.756 0.823857 4.66342 1.00901L3.33334 3.7055L0.35795 4.13792C0.275919 4.14964 0.200919 4.18831 0.143497 4.2469C0.0740774 4.31826 0.0358239 4.41425 0.0371424 4.51379C0.0384608 4.61333 0.0792433 4.70828 0.150529 4.77776L2.30326 6.87659L1.79467 9.84026C1.78274 9.9092 1.79037 9.98011 1.81669 10.0449C1.84301 10.1098 1.88697 10.1659 1.94358 10.207C2.00019 10.2481 2.06719 10.2726 2.13697 10.2776C2.20676 10.2825 2.27655 10.2679 2.33842 10.2352L4.99975 8.83597L7.66108 10.2352C7.73373 10.2739 7.81811 10.2867 7.89897 10.2727C8.10287 10.2375 8.23998 10.0442 8.20483 9.84026L7.69623 6.87659L9.84897 4.77776C9.90756 4.72034 9.94623 4.64534 9.95795 4.56331C9.98959 4.35823 9.84662 4.16839 9.64154 4.13792V4.13792Z" fill="#D3D3D3"/>
+                                            </svg>
+                                            ))}
+                                        </div>
+                                        <div className="owner"><span>{review.owner}</span>
+                                            <svg width="14" height="14" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12 2.82898C10.0716 2.82898 8.18657 3.40081 6.58319 4.47215C4.97982 5.54349 3.73013 7.06624 2.99218 8.84782C2.25422 10.6294 2.06114 12.5898 2.43735 14.4811C2.81355 16.3724 3.74215 18.1097 5.10571 19.4733C6.46928 20.8368 8.20656 21.7654 10.0979 22.1416C11.9892 22.5178 13.9496 22.3248 15.7312 21.5868C17.5127 20.8489 19.0355 19.5992 20.1068 17.9958C21.1782 16.3924 21.75 14.5073 21.75 12.579C21.7473 9.99396 20.7192 7.51559 18.8913 5.6877C17.0634 3.85982 14.585 2.83171 12 2.82898ZM16.2806 10.8596L11.0306 16.1096C10.961 16.1793 10.8783 16.2347 10.7872 16.2724C10.6962 16.3101 10.5986 16.3296 10.5 16.3296C10.4014 16.3296 10.3038 16.3101 10.2128 16.2724C10.1218 16.2347 10.039 16.1793 9.96938 16.1096L7.71938 13.8596C7.57865 13.7189 7.49959 13.528 7.49959 13.329C7.49959 13.13 7.57865 12.9391 7.71938 12.7984C7.86011 12.6576 8.05098 12.5786 8.25 12.5786C8.44903 12.5786 8.6399 12.6576 8.78063 12.7984L10.5 14.5187L15.2194 9.79835C15.2891 9.72867 15.3718 9.6734 15.4628 9.63568C15.5539 9.59797 15.6515 9.57856 15.75 9.57856C15.8486 9.57856 15.9461 9.59797 16.0372 9.63568C16.1282 9.6734 16.2109 9.72867 16.2806 9.79835C16.3503 9.86804 16.4056 9.95076 16.4433 10.0418C16.481 10.1329 16.5004 10.2304 16.5004 10.329C16.5004 10.4275 16.481 10.5251 16.4433 10.6162C16.4056 10.7072 16.3503 10.7899 16.2806 10.8596Z" fill="#01AB31"/>
+                                            </svg>
+                                        </div>
+                                        <div className="review">{'"' + review.review + '"'}</div>
+                                        <div className="date">{review.date}</div>
+                                    </div>
+                            )})}
+                        </div>
                     </div>
-                </div>
-                <div className="reviews"></div>
+                )}
+               
             </div>
         </div>
         <div className="product-detail-3"></div>
