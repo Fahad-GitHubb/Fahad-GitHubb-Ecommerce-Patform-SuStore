@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import HeaderBar from './HeaderBar';
+import ChatBot from '../components/ChatBot/ChatBot';
 
 const Wishlist = () => {
   // Example wishlist items; in a real app you'd pull these from context or API

@@ -2,6 +2,7 @@ import React from 'react'
 import HeaderBar from '../HeaderBar'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import ChatBot from '../components/ChatBot/ChatBot';
 
 const Shops = () => {
     const [numStores, setNumStores] = useState(0)

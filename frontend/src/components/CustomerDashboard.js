@@ -1,6 +1,7 @@
 import React from 'react'
 import Advertisment1 from './advertisments/Advertisment1'
 import Advertisment2 from './advertisments/Advertisment2'
+import ChatBot from '../components/ChatBot/ChatBot';
 
 const CustomerDashboard = () => {
   return (
