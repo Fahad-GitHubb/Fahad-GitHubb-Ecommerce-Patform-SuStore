@@ -15,6 +15,8 @@ import ProductDetail from './components/products/ProductDetail';
 import Cart from './components/Cart';
 import Wishlist from './components/WishList';
 import OrderCompletion from './components/OrderCompletion';
+import Blogs from './components/blogs/Blogs';
+import Blog from './components/blogs/Blog';
 
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
               <Route path='/cart' element={<Cart />} />
               <Route path='/wishlist' element={<Wishlist />} />
               <Route path='/order-completion' element={<OrderCompletion />} />
+              <Route path='/blogs' element={<Blogs />} />
+              <Route path='/blog' element={<Blog />} />
           </Routes>
       </div>
       <Footer />
