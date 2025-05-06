@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import HeaderBar from '../HeaderBar'
 import { useSearchParams } from 'react-router-dom';
-import ChatBot from '../components/ChatBot/ChatBot';
+//import ChatBot from '../components/ChatBot/ChatBot';
 
 const Shop = () => {
   const [searchParams, setSearchParams] = useSearchParams();
