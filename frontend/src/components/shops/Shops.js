@@ -1,10 +1,20 @@
 import React from 'react'
 import HeaderBar from '../HeaderBar'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 //import ChatBot from '../components/ChatBot/ChatBot';
 
 const Shops = () => {
+    const [stores, setStores] = useState([])
+
+    useEffect(() => {
+        const token = sessionStorage.getItem('authenticated');  
+        if (token === 'false' || token === null) {
+            window.location.href = '/';
+        }
+    }, []);
+
+
     const [numStores, setNumStores] = useState(0)
     const shops = [
     {

@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { use } from 'react'
 import Advertisment1 from './advertisments/Advertisment1'
 import Advertisment2 from './advertisments/Advertisment2'
 import ChatBot from '../components/ChatBot/ChatBot';
+import { useState, useEffect } from 'react'
 
 const CustomerDashboard = () => {
+  useEffect(() => {
+    const token = sessionStorage.getItem('authenticated');
+    if (token === 'false' || token === null) {
+        window.location.href = '/';
+    }
+  }, []);
+
   return (
     <div className='customerDashboard'>
         <Advertisment1 

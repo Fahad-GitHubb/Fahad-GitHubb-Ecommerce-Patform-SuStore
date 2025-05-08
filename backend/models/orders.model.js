@@ -15,7 +15,7 @@ const ordersSchema = new mongoose.Schema({
     },
     deliveryAddress: {
         type: String,
-        required: trues
+        required: true
     },
     locations:{
         type: [String],

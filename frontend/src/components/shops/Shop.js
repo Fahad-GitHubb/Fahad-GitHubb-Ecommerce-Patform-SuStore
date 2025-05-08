@@ -1,9 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import HeaderBar from '../HeaderBar'
 import { useSearchParams } from 'react-router-dom';
 //import ChatBot from '../components/ChatBot/ChatBot';
 
 const Shop = () => {
+  // Check if the user is authenticated
+  useEffect(() => {
+    const token = sessionStorage.getItem('authenticated');
+    if (token === 'false' || token === null) {
+      window.location.href = '/';
+    }
+  }, []);
+
+
   const [searchParams, setSearchParams] = useSearchParams();
   // Get the id
   const myParam = searchParams.get('id');

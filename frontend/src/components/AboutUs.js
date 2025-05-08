@@ -1,7 +1,16 @@
 import React from 'react';
 import { Users, Award, Clock } from 'lucide-react';
+import { useEffect } from 'react';
+
 
 const AboutUs = () => {
+  useEffect(() => {
+    const token = sessionStorage.getItem('authenticated');
+    if (token === 'false' || token === null) {
+      window.location.href = '/';
+    }
+  }, []);
+
   return (
     <div className="p-6 md:p-12 bg-gradient-to-b from-white to-gray-50 text-gray-900 rounded-lg shadow-md max-w-4xl mx-auto">
       <div className="flex flex-col space-y-6">

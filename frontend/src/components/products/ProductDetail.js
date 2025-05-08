@@ -1,8 +1,17 @@
 import React from 'react'
 import HeaderBar from '../HeaderBar'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const ProductDetail = () => {
+    useEffect(() => {
+        const token = sessionStorage.getItem('authenticated');
+        if (token === 'false' || token === null) {
+            window.location.href = '/';
+        }
+    }
+    , []);
+    
+
     const [showReviews, setShowReviews] = useState(false)
     const numStars = 5;
     const numDetais = 4;

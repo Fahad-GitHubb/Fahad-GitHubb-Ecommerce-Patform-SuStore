@@ -4,9 +4,11 @@ import {Link} from 'react-router-dom'
 import { validateUser } from '../store/users'
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({setAuthenticated}) => {
   const [formData, setFormData] = useState({})
   const navigate = useNavigate();
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -15,10 +17,16 @@ const Login = () => {
       password: formData.password,
     }
     const isValid = await validateUser(user)
-    if (isValid) {
+    if (isValid.validity) {
       console.log('User is valid')
+      setAuthenticated(true)
+      sessionStorage.setItem('authenticated', true)
+      sessionStorage.setItem('user', JSON.stringify(isValid.user))
       // Redirect to home page or perform any other action
       navigate('/customer-dashboard');
+    } else{
+      sessionStorage.setItem('authenticated', false);
+      sessionStorage.setItem('user', null)
     }
   }
   return (

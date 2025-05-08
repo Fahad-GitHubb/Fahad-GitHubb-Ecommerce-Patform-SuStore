@@ -1,8 +1,19 @@
 import React from 'react'
 import { useState } from 'react'
 import HeaderBar from '../HeaderBar'
+import { useEffect } from 'react'
 
 const ProductListing = () => {
+    useEffect(() => {
+        const token = sessionStorage.getItem('authenticated');
+        if (token === 'false' || token === null) {
+            window.location.href = '/';
+        }
+    }
+    , []);
+    
+
+
     const [numProducts, setNumProducts] = useState(0)
     const products = [
     {

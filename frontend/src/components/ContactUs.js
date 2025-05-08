@@ -1,7 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mail, User, MessageSquare, ArrowRight, CheckCircle } from 'lucide-react';
 
 const ContactUs = () => {
+  useEffect(() => {
+    const token = sessionStorage.getItem('authenticated');
+    if (token === 'false' || token === null) {
+      window.location.href = '/';
+    }
+  }, []);
+
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',

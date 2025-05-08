@@ -1,8 +1,16 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import HeaderBar from "../HeaderBar";
 
 const Blog = () => {
+    useEffect(() => {
+        const token = sessionStorage.getItem("authenticated");
+        if (token === "false" || token === null) {
+            window.location.href = "/";
+        }
+    }, []);
+    
+
     const blog = {
         ImageURL: '/images/cover.jpeg',
         title: 'The Future of Web Development',

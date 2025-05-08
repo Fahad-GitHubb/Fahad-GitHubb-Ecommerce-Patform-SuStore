@@ -31,3 +31,6 @@ const advertismentsSchema = new mongoose.Schema({
         maxlength: 30
     }
 })
+
+const AdvertismentSchema = mongoose.model("Advertisments", advertismentsSchema);
+export default AdvertismentSchema;

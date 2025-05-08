@@ -20,7 +20,7 @@ const bundleItemsSchema = new mongoose.Schema({
 },
 {
     timestamps: true
-})
+})  
 
 const BundleItems = mongoose.model("BundleItems", bundleItemsSchema);
 export default BundleItems;

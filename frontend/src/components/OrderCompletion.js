@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { use } from 'react'
 import HeaderBar from './HeaderBar'
+import { useState, useEffect } from 'react'
 
 const OrderCompletion = () => {
+    useEffect(() => {
+        const token = sessionStorage.getItem('authenticated');
+        if (token === 'false' || token === null) {
+            window.location.href = '/';
+        } 
+    }
+    , []);
+    
     return (
         <div className='order-completion'>
             <HeaderBar 

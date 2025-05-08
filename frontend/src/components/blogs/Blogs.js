@@ -3,6 +3,13 @@ import { useState, useEffect } from 'react';
 import HeaderBar from '../HeaderBar';
 
 const Blogs = () => {
+    useEffect(() => {
+        const token = sessionStorage.getItem("authenticated");
+        if (token === "false" || token === null) {
+            window.location.href = "/";
+        }
+    }, []);
+
     const blogs = [
         {
             ImageURL: '/images/produt1.jpeg',

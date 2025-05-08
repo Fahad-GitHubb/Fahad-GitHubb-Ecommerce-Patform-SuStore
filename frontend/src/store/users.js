@@ -26,11 +26,13 @@ export const validateUser = async (user) =>{
         });
         const data = await response.json();
         console.log("Data from validate user:", data)
+        
         if (data.data){
-            return true;
+            return {validity: true, user: data.data};
         } else {
-            return false;
+            return {validity: false, user: null};
         }
+
     } catch (error) {
         console.error("Error validating user:", error);
         console.log("Error validating user:", error);

@@ -6,7 +6,27 @@ const storesSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    tagline: {
+        type: String,
+        required: true,
+    },
     description: {
+        type: String,
+        required: true,
+    },
+    // majorDescription: {
+    //     type: String,
+    //     required: true,
+    // },
+    phone: {
+        type: String,
+        required: true,
+    },
+    email: {
+        type: String,
+        required: true,
+    },
+    address: {  
         type: String,
         required: true,
     },
@@ -16,14 +36,19 @@ const storesSchema = new mongoose.Schema({
     },
     haveAd: {
         type: Boolean,
-        required: true,
-        dfault: false
+        default: true
     },
     adCount: {
         type: Number,
         default: 0
-    }
-    
+    },
+    rating: {
+        type: Number,
+        default: 0
+    },
+    image: {
+        type: String,
+    },  
 },{
     timestamps: true
 })

@@ -1,8 +1,19 @@
 import React, { useState } from 'react';
 import HeaderBar from './HeaderBar';
 import ChatBot from '../components/ChatBot/ChatBot';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import {useEffect} from 'react';
 
 const Wishlist = () => {
+
+  useEffect(() => {
+    const token = sessionStorage.getItem('authenticated');
+    if (token === 'false' || token === null) {
+      window.location.href = '/';
+    } 
+  }
+  , []);
   // Example wishlist items; in a real app you'd pull these from context or API
   const [wishlist, setWishlist] = useState([
     {

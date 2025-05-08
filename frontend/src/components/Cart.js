@@ -1,7 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import HeaderBar from './HeaderBar'
 
 const Cart = () => {
+    useEffect(() => {
+        const token = sessionStorage.getItem('authenticated');
+        if (token === 'false' || token === null) {
+            window.location.href = '/';
+        }
+    }
+    , []);
+
+
+
     const cart = [
     {
         productImage: '/images/chair1.png',
