@@ -40,12 +40,12 @@ const storesSchema = new mongoose.Schema({
     },
     adCount: {
         type: Number,
-        default: 0
+        default: 2
     },
-    rating: {
-        type: Number,
-        default: 0
-    },
+    // rating: {
+    //     type: Number,
+    //     default: 0
+    // },
     image: {
         type: String,
     },  

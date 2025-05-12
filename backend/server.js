@@ -149,18 +149,19 @@ app.get('/api/store', async(req, res) =>{
 
 
 // create a store
-app.post('api/store', async (req, res) => {
+app.post('/api/store', async (req, res) => {
     const store = req.body
 
-    if(!store.name || !store.email || !store.password){
+    if(!store.name || !store.email || !store.phone || !store.address || !store.tagline || !store.description || !store.image){
         return res.status(400).json({message: "Please fill all the fields of store"})
     }
 
     const newStore = new Stores(store)
+    console.log('New Store', newStore)
 
     try{
         await newStore.save()
-        res.status(200).json({message: "Store has been created successfully", data: newStore})
+        res.status(200).json({message: "Store has been created successfully", data: newStore._id})
     } catch (error){
         res.status(500).json({message: error.message})
     }
@@ -168,13 +169,18 @@ app.post('api/store', async (req, res) => {
 
 //create a product
 app.post('/api/product', async (req, res) => {
+    console.log('hi-1')
     const product = req.body
+    console.log('Product',product)
 
-    if(!product.name || !product.price || !product.image){
+    console.log('hi0')
+    if(!product.name || !product.price || !product.images  || !product.category || !product.storeId){
         return res.status(400).json({message: "Please fill all the fields of product"})
     }
+    console.log('hi')
 
     const newProduct = new Product(product)
+    console.log('New Product', newProduct)
 
     try{
         await newProduct.save()

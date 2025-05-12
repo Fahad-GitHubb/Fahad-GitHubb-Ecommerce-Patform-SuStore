@@ -14,62 +14,89 @@ export const getStores = async () =>{
     }
 }
 
-export const createStore = async (store, products) => {
-  console.log("store", store);
-  console.log("products", products);
 
-  let storeId;
 
-  // Step 1: Create Store
-  try {
-    const storeResponse = await fetch("http://localhost:5000/api/store", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(store),
-    });
+export const createStore = async (storeData, sellerID) => {
+  console.log("storeData", storeData);
+  
+  // let store = storeData.shop
+  // store = { ...store, sellerId: sellerID };
+  // store= { ...store, image: store.image.name}
+  // console.log("store", store);
 
-    if (!storeResponse.ok) {
-      throw new Error("Failed to create store");
-    }
+  // let storeId
 
-    const storeData = await storeResponse.json();
-    storeId = storeData._id;
-    console.log("Store created with ID:", storeId);
-  } catch (error) {
-    console.error("Error creating store:", error);
-    return { message: "Error creating store", error };
+  // // Step 1: Create Store
+  // try {
+  //   const storeResponse = await fetch("http://localhost:5000/api/store", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(store),
+  //   });
+
+  //   if (!storeResponse.ok) {
+  //     throw new Error("Failed to create store");
+  //   }
+
+  //   const storeData = await storeResponse.json();
+  //   console.log("Store created:", storeData);
+  //   storeId = storeData.data
+  //   console.log("Store created with ID:", storeId);
+  // } catch (error) {
+  //   console.error("Error creating store:", error);
+  //   return { message: "Error creating store", error };
+  // }
+
+  let storeId = '681e7377d10c681dd9de412b'
+  // // Step 2: Create Products (if any)
+  let products = storeData['products'];
+  for (let i = 0; i < products.length; i++) {
+    products[i] = { ...products[i], storeId: storeId };
   }
-
-  // Step 2: Create Products (if any)
-  if (products.length > 0) {
-    const productsWithStoreId = products.map(product => ({
+  console.log("Products", products);
+  // Convert product images to an array of strings and remove the id property
+  products = products.map(product => {
+    const updatedProduct = {
       ...product,
-      storeId,
-    }));
+      images: product.images.map(image => image.name), // Convert images to an array of strings
+    };
+    delete updatedProduct.id; // Remove the id property
+    return updatedProduct;
+  });
 
-    try {
+
+  console.log("Products to create:", products);
+
+  
+  try {
+    const productPromises = products.map(async (product) => {
       const productResponse = await fetch("http://localhost:5000/api/product", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(productsWithStoreId),
+        body: JSON.stringify(product),
       });
 
+      console.log(productResponse);
+
       if (!productResponse.ok) {
-        throw new Error("Failed to create products");
+        throw new Error("Failed to create product");
       }
 
       const productData = await productResponse.json();
-      console.log("Products created:", productData);
-      return { store: storeId, products: productData };
-    } catch (error) {
-      console.error("Error creating products:", error);
-      return { message: "Error creating products", error };
-    }
-  }
+      console.log("Product created:", productData);
+      return productData;
+    });
 
-  return { store: storeId, message: "Store created successfully without products" };
+    await Promise.all(productPromises);
+    console.log("All products created successfully");
+
+    return { store: storeId, message: "Products created successfully" };
+  } catch (error) {
+    console.error("Error creating products:", error);
+    return { message: "Error creating products", error };
+  }
 };
