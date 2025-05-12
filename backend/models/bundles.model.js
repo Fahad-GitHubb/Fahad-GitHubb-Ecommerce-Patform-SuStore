@@ -10,7 +10,7 @@ const bundlesSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    description: {
+    tagline: {
         type: String,
         required: true,
     },

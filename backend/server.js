@@ -83,58 +83,58 @@ app.get('/api/store', async (req, res)=>{
 
 
 // creating new prodcut 
-app.post('/api/product', async (req, res)=>{
-    const product = req.body;
-    console.log(product)
+// app.post('/api/product', async (req, res)=>{
+//     const product = req.body;
+//     console.log(product)
 
-    if(!product.name || !product.price || !product.image){
-        return res.status(400).json({message: "Please fill all the fields of product"})
-    }
+//     if(!product.name || !product.price || !product.image){
+//         return res.status(400).json({message: "Please fill all the fields of product"})
+//     }
 
-    const newProduct = new Product(product)
+//     const newProduct = new Product(product)
 
-    try{
-        await newProduct.save()
-        res.status(200).json({message: "Product has been created successfully"})
-    } catch (error){
-        res.status(500).json({message: error.message})
-    }
-})
+//     try{
+//         await newProduct.save()
+//         res.status(200).json({message: "Product has been created successfully"})
+//     } catch (error){
+//         res.status(500).json({message: error.message})
+//     }
+// })
 
 // deleting a product
-app.delete('/api/product/:id', async (req, res)=>{
-    const {id} = req.params
-    console.log(id)
+// app.delete('/api/product/:id', async (req, res)=>{
+//     const {id} = req.params
+//     console.log(id)
 
-    try{
-        await Product.findByIdAndDelete(id)
-        res.status(200).json({message: "Product has been deleted successfully"})
-    } catch (error){
-        res.status(500).json({message: error.message})
-    }
-})
+//     try{
+//         await Product.findByIdAndDelete(id)
+//         res.status(200).json({message: "Product has been deleted successfully"})
+//     } catch (error){
+//         res.status(500).json({message: error.message})
+//     }
+// })
 
 //geting all products
-app.get('/api/products', async (req,res)=>{
-    try{
-        const products = await Product.find({})
-        res.status(200).json({seccess: true, data: products})
-    } catch (error){
-        res.status(500).json({message: error.message})
-    }
-})
+// app.get('/api/products', async (req,res)=>{
+//     try{
+//         const products = await Product.find({})
+//         res.status(200).json({seccess: true, data: products})
+//     } catch (error){
+//         res.status(500).json({message: error.message})
+//     }
+// })
 
-app.put('/api/product/:id', async (req, res)=>{
-    const {id} = req.params
-    const product = req.body
+// app.put('/api/product/:id', async (req, res)=>{
+//     const {id} = req.params
+//     const product = req.body
 
-    try{
-        const updatedProduct = await Product.findByIdAndUpdate(id, product, {new:true})
-        res.status(200).json({message: "Product has been updated successfully", data: updatedProduct})
-    } catch(error){
-        res.status(500).json({message: error.message})
-    }
-})
+//     try{
+//         const updatedProduct = await Product.findByIdAndUpdate(id, product, {new:true})
+//         res.status(200).json({message: "Product has been updated successfully", data: updatedProduct})
+//     } catch(error){
+//         res.status(500).json({message: error.message})
+//     }
+// })
 
 // get all stores
 app.get('/api/store', async(req, res) =>{
@@ -169,29 +169,60 @@ app.post('/api/store', async (req, res) => {
 
 //create a product
 app.post('/api/product', async (req, res) => {
-    console.log('hi-1')
     const product = req.body
-    console.log('Product',product)
 
-    console.log('hi0')
     if(!product.name || !product.price || !product.images  || !product.category || !product.storeId){
         return res.status(400).json({message: "Please fill all the fields of product"})
     }
-    console.log('hi')
+    
 
     const newProduct = new Product(product)
-    console.log('New Product', newProduct)
 
     try{
         await newProduct.save()
-        res.status(200).json({message: "Product has been created successfully"})
+        res.status(200).json({message: "Product has been created successfully", data: newProduct._id})
     } catch (error){
         res.status(500).json({message: error.message})
     }
 })
 
 
+// create a bundle
+app.post('/api/bundle', async (req, res) => {
+    const bundle = req.body
 
+    if(!bundle.name || !bundle.price || !bundle.tagline || !bundle.storeId){
+        return res.status(400).json({message: "Please fill all the fields of bundle"})
+    }
+
+    const newBundle = new Bundles(bundle)
+
+    try{
+        await newBundle.save()
+        res.status(200).json({message: "Bundle has been created successfully", data: newBundle._id})
+    } catch (error){
+        res.status(500).json({message: error.message})
+    }
+})
+
+// create a bundle item
+app.post('/api/bundleItem', async (req, res) => {
+    const bundleItem = req.body
+    console.log(bundleItem)
+
+    if(!bundleItem.bundleId || !bundleItem.productId || !bundleItem.quantity){
+        return res.status(400).json({message: "Please fill all the fields of bundle item"})
+    }
+
+    const newBundleItem = new BundleItems(bundleItem)
+
+    try{
+        await newBundleItem.save()
+        res.status(200).json({message: "Bundle item has been created successfully", data: newBundleItem._id})
+    } catch (error){
+        res.status(500).json({message: error.message})
+    }
+})
 
 
 
