@@ -100,3 +100,4 @@ export const createStore = async (storeData, sellerID) => {
     return { message: "Error creating products", error };
   }
 };
+``
